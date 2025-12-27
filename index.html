@@ -13,31 +13,10 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #fff;
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* 动态背景效果 */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.2) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            line-height: 1.6;
         }
 
         .container {
@@ -51,27 +30,14 @@
             padding: 60px 20px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            backdrop-filter: blur(10px);
             margin-bottom: 40px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
-            font-size: 3.5em;
+            font-size: 3em;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, #00f5ff, #ff00ff, #00f5ff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient 3s linear infinite;
-            text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
+            color: #00f5ff;
         }
 
         .subtitle {
@@ -91,16 +57,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             padding: 30px;
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 245, 255, 0.3);
-            border-color: rgba(0, 245, 255, 0.3);
         }
 
         .card h2 {
@@ -119,7 +76,6 @@
             border-radius: 15px;
             padding: 40px;
             margin-bottom: 40px;
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -127,7 +83,6 @@
             font-size: 2.5em;
             margin-bottom: 25px;
             color: #ff00ff;
-            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
         }
 
         .section p {
@@ -141,17 +96,16 @@
             padding: 15px 40px;
             font-size: 1.2em;
             background: linear-gradient(90deg, #00f5ff, #0080ff);
-            color: #0f0c29;
+            color: #1a1a2e;
             text-decoration: none;
             border-radius: 30px;
             margin-top: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             font-weight: bold;
+            transition: transform 0.3s ease;
         }
 
         .btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.5);
         }
 
         footer {
@@ -175,50 +129,9 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* 粒子效果 */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #00f5ff;
-            border-radius: 50%;
-            animation: float 15s infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    
     <div class="container">
         <header>
             <h1>欢迎来到未来</h1>
@@ -266,25 +179,5 @@
             <p>© 2025 我的赛博朋克网页 | 使用 GitHub Pages 部署</p>
         </footer>
     </div>
-
-    <script>
-        // 创建粒子效果
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                container.appendChild(particle);
-            }
-        }
-
-        // 页面加载时创建粒子
-        window.onload = createParticles;
-    </script>
 </body>
 </html>
