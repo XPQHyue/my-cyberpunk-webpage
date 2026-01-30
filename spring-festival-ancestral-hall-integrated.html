@@ -250,6 +250,15 @@
             justify-content: center;
             font-size: 48px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .member-name {
@@ -533,6 +542,840 @@
                 font-size: 18px;
             }
         }
+
+        /* ===== 编辑/添加表单样式 ===== */
+        .edit-modal {
+            max-width: 550px;
+        }
+
+        .modal-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            color: rgba(255, 215, 150, 0.9);
+        }
+
+        .edit-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(168, 216, 234, 0.6);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 20px rgba(168, 216, 234, 0.2);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* ===== 头像上传样式 ===== */
+        .avatar-upload-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .avatar-upload-container:hover {
+            border-color: rgba(168, 216, 234, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .avatar-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px solid rgba(168, 216, 234, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin: 0 auto;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-upload-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .avatar-btn {
+            flex: 1;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, rgba(168, 216, 234, 0.3), rgba(168, 216, 234, 0.15));
+            border: 2px solid rgba(168, 216, 234, 0.5);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .avatar-btn:hover {
+            background: linear-gradient(135deg, rgba(168, 216, 234, 0.5), rgba(168, 216, 234, 0.3));
+            border-color: rgba(168, 216, 234, 0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(168, 216, 234, 0.3);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .edit-button,
+        .add-button {
+            flex: 1;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, rgba(168, 216, 234, 0.3), rgba(168, 216, 234, 0.15));
+            border: 2px solid rgba(168, 216, 234, 0.5);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .edit-button:hover,
+        .add-button:hover {
+            background: linear-gradient(135deg, rgba(168, 216, 234, 0.5), rgba(168, 216, 234, 0.3));
+            border-color: rgba(168, 216, 234, 0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(168, 216, 234, 0.3);
+        }
+
+        .delete-button {
+            flex: 1;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, rgba(255, 100, 100, 0.3), rgba(255, 100, 100, 0.15));
+            border: 2px solid rgba(255, 100, 100, 0.5);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .delete-button:hover {
+            background: linear-gradient(135deg, rgba(255, 100, 100, 0.5), rgba(255, 100, 100, 0.3));
+            border-color: rgba(255, 100, 100, 0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 100, 100, 0.3);
+        }
+
+        /* ===== 祭拜按钮样式 ===== */
+        .worship-button {
+            flex: 1;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(255, 165, 0, 0.3));
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .worship-button:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(255, 165, 0, 0.5));
+            border-color: rgba(255, 215, 0, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .worship-button:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== 祭拜信息样式 ===== */
+        .worship-info {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .worship-count {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 18px;
+            color: rgba(255, 215, 0, 0.95);
+            margin-bottom: 8px;
+        }
+
+        .worship-icon {
+            font-size: 28px;
+            animation: pulse 2s infinite;
+        }
+
+        .worship-text {
+            letter-spacing: 1px;
+        }
+
+        .worship-text strong {
+            font-size: 24px;
+            color: rgba(255, 215, 0, 1);
+        }
+
+        .last-worship {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        /* ===== 祭拜动画效果 ===== */
+        .worship-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .worship-overlay.active {
+            display: flex;
+        }
+
+        .worship-content {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .worship-emoji {
+            font-size: 120px;
+            margin-bottom: 30px;
+            animation: worshipFloat 3s ease-in-out infinite;
+        }
+
+        .worship-message {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: rgba(255, 215, 0, 0.95);
+            animation: fadeIn 0.5s ease-out 0.3s both;
+        }
+
+        .worship-submessage {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 15px;
+            letter-spacing: 1px;
+            animation: fadeIn 0.5s ease-out 0.5s both;
+        }
+
+        .worship-complete-button {
+            margin-top: 25px;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, rgba(100, 200, 100, 0.5), rgba(100, 200, 100, 0.3));
+            border: 2px solid rgba(100, 200, 100, 0.7);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            animation: fadeIn 0.5s ease-out 3.5s both;
+        }
+
+        .worship-complete-button:hover {
+            background: linear-gradient(135deg, rgba(100, 200, 100, 0.7), rgba(100, 200, 100, 0.5));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(100, 200, 100, 0.4);
+        }
+
+        @keyframes worshipFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .incense-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            gap: 30px;
+            z-index: 10001;
+        }
+
+        .incense-container.active {
+            display: flex;
+        }
+
+        .incense {
+            width: 4px;
+            height: 60px;
+            background: linear-gradient(to top, #8B4513 0%, #D2691E 100%);
+            border-radius: 2px;
+            position: relative;
+            animation: incenseBurn 3s ease-out infinite;
+        }
+
+        .incense::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(255, 165, 0, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: smoke 2s ease-out infinite;
+        }
+
+        /* ===== 弹幕Canvas ===== */
+        #danmakuCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9996;
+        }
+
+        /* ===== 留言输入弹窗 ===== */
+        #messageInputModal {
+            z-index: 10002;
+        }
+
+        @keyframes incenseBurn {
+            0%, 100% {
+                height: 60px;
+            }
+            50% {
+                height: 55px;
+            }
+        }
+
+        @keyframes smoke {
+            0% {
+                opacity: 0.8;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-40px) scale(2);
+            }
+        }
+
+        .cancel-button {
+            flex: 1;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .cancel-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .save-button {
+            flex: 1;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, rgba(100, 200, 100, 0.4), rgba(100, 200, 100, 0.2));
+            border: 2px solid rgba(100, 200, 100, 0.6);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .save-button:hover {
+            background: linear-gradient(135deg, rgba(100, 200, 100, 0.6), rgba(100, 200, 100, 0.4));
+            border-color: rgba(100, 200, 100, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(100, 200, 100, 0.3);
+        }
+
+        /* ===== 家训展示 ===== */
+        .family-motto-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            background: rgba(255, 215, 150, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 215, 150, 0.3);
+            border-radius: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .motto-icon {
+            font-size: 48px;
+        }
+
+        .motto-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .motto-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 215, 150, 0.9);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .motto-text {
+            font-size: 22px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 2px;
+            line-height: 1.6;
+        }
+
+        .motto-edit-button {
+            padding: 10px 15px;
+            background: rgba(255, 215, 150, 0.2);
+            border: 2px solid rgba(255, 215, 150, 0.4);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .motto-edit-button:hover {
+            background: rgba(255, 215, 150, 0.3);
+            transform: rotate(90deg);
+        }
+
+        /* ===== 搜索和筛选 ===== */
+        .search-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(168, 216, 234, 0.4);
+            border-radius: 15px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(168, 216, 234, 0.7);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .filter-select {
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(168, 216, 234, 0.4);
+            border-radius: 15px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:hover {
+            border-color: rgba(168, 216, 234, 0.7);
+        }
+
+        .filter-select option {
+            background: #1a1a2e;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* ===== 统计弹窗 ===== */
+        .statistics-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .stat-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: rgba(168, 216, 234, 0.1);
+            border: 2px solid rgba(168, 216, 234, 0.3);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(168, 216, 234, 0.2);
+            transform: translateX(5px);
+        }
+
+        .stat-icon {
+            font-size: 40px;
+            margin-right: 20px;
+        }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 600;
+            color: rgba(255, 215, 150, 0.95);
+        }
+
+        /* ===== 祭拜排行榜 ===== */
+        .worship-rank-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 215, 150, 0.08);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 150, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                0 0 40px rgba(255, 215, 150, 0.15);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .rank-title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: rgba(255, 215, 150, 0.95);
+            text-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 215, 150, 0.2);
+        }
+
+        .worship-rank-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 12px;
+            background: rgba(255, 215, 150, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .worship-rank-item:hover {
+            background: rgba(255, 215, 150, 0.2);
+            transform: translateX(5px);
+        }
+
+        .worship-rank-number {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 215, 150, 0.9);
+            width: 30px;
+        }
+
+        .worship-rank-name {
+            flex: 1;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .worship-rank-count {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 215, 150, 0.9);
+        }
+
+        /* ===== 故事弹窗 ===== */
+        .story-generation {
+            margin-bottom: 30px;
+        }
+
+        .story-generation-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 215, 150, 0.9);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .story-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(168, 216, 234, 0.3);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            line-height: 1.8;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .story-textarea:focus {
+            outline: none;
+            border-color: rgba(168, 216, 234, 0.6);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* ===== 纪念日弹窗 ===== */
+        .reminder-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 100, 100, 0.1);
+            border: 2px solid rgba(255, 100, 100, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .reminder-item.birthday {
+            background: rgba(100, 200, 100, 0.1);
+            border-color: rgba(100, 200, 100, 0.3);
+        }
+
+        .reminder-item:hover {
+            transform: translateX(5px);
+        }
+
+        .reminder-icon {
+            font-size: 28px;
+            margin-right: 15px;
+        }
+
+        .reminder-info {
+            flex: 1;
+        }
+
+        .reminder-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 5px;
+        }
+
+        .reminder-date {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .reminder-days {
+            font-size: 14px;
+            color: rgba(255, 215, 150, 0.9);
+            font-weight: 600;
+        }
+
+        .reminder-item.custom {
+            background: rgba(168, 216, 234, 0.1);
+            border-color: rgba(168, 216, 234, 0.3);
+        }
+
+        .reminder-item.custom:hover {
+            background: rgba(168, 216, 234, 0.2);
+        }
+
+        .reminder-delete {
+            padding: 5px 10px;
+            background: rgba(255, 100, 100, 0.3);
+            border: 1px solid rgba(255, 100, 100, 0.5);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reminder-delete:hover {
+            background: rgba(255, 100, 100, 0.5);
+            transform: scale(1.05);
+        }
+
+        .reminder-note {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+        }
+
+        /* ===== 管理按钮 ===== */
+        .manage-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .manage-button {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, rgba(168, 216, 234, 0.3), rgba(168, 216, 234, 0.15));
+            border: 2px solid rgba(168, 216, 234, 0.5);
+            border-radius: 15px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            backdrop-filter: blur(10px);
+        }
+
+        .manage-button:hover {
+            background: linear-gradient(135deg, rgba(168, 216, 234, 0.5), rgba(168, 216, 234, 0.3));
+            border-color: rgba(168, 216, 234, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 216, 234, 0.4);
+        }
+
+        /* ===== 提示信息 ===== */
+        .success-message {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, rgba(100, 200, 100, 0.3), rgba(100, 200, 100, 0.15));
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(100, 200, 100, 0.5);
+            border-radius: 15px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 5px 25px rgba(100, 200, 100, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -566,6 +1409,42 @@
         <!-- 家谱树展示区 -->
         <div class="family-tree-section" id="familyTreeSection">
             <h2 class="section-title">家族谱系</h2>
+            
+            <!-- 家训展示区 -->
+            <div class="family-motto-section">
+                <div class="motto-icon">📜</div>
+                <div class="motto-content">
+                    <div class="motto-label">家族家训</div>
+                    <div class="motto-text" id="mottoText">诚以立身，勤以立业，孝以传家，德以处世</div>
+                </div>
+                <button class="motto-edit-button" onclick="editMotto()">✏️</button>
+            </div>
+
+            <!-- 搜索框 -->
+            <div class="search-section">
+                <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索成员姓名、辈分或年份..." onkeyup="searchMembers()">
+                <select class="filter-select" id="filterGeneration" onchange="filterMembers()">
+                    <option value="">全部辈分</option>
+                </select>
+            </div>
+
+            <!-- 祭拜排行榜 -->
+            <div class="worship-rank-section">
+                <h3 class="rank-title">🏆 祭拜排行榜</h3>
+                <div id="worshipRankList"></div>
+            </div>
+
+            <!-- 管理按钮区 -->
+            <div class="manage-section">
+                <button class="manage-button" onclick="openAddModal()">➕ 添加新成员</button>
+                <button class="manage-button" onclick="showStatistics()" style="margin-left: 10px;">📊 统计数据</button>
+                <button class="manage-button" onclick="showFamilyStories()" style="margin-left: 10px;">📖 家族故事</button>
+                <button class="manage-button" onclick="showReminders()" style="margin-left: 10px;">🔔 纪念日</button>
+                <button class="manage-button" onclick="exportData()" style="margin-left: 10px;">💾 备份</button>
+                <button class="manage-button" onclick="document.getElementById('importInput').click()" style="margin-left: 10px;">📥 导入</button>
+                <input type="file" id="importInput" accept=".json" style="display: none;" onchange="importData(event)">
+            </div>
+
             <div class="family-tree" id="familyTree">
                 <!-- 家谱树将通过JavaScript动态生成 -->
             </div>
@@ -595,12 +1474,333 @@
                 <h4 class="story-title">生平故事</h4>
                 <p class="story-content" id="modalStory">暂无故事</p>
             </div>
+            <div class="worship-info" id="worshipInfo" style="display: none;">
+                <div class="worship-count">
+                    <span class="worship-icon">🙏</span>
+                    <span class="worship-text">已祭拜 <strong id="worshipCount">0</strong> 次</span>
+                </div>
+                <div class="last-worship">
+                    上次祭拜: <span id="lastWorshipTime">从未祭拜</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="worship-button" id="worshipButton" onclick="worshipMember()" style="display: none;">
+                    🙏 祭拜
+                </button>
+                <button class="edit-button" onclick="openEditModal()">
+                    ✏️ 编辑信息
+                </button>
+                <button class="delete-button" onclick="deleteMember()">
+                    🗑️ 删除成员
+                </button>
+            </div>
         </div>
+    </div>
+
+    <!-- 编辑成员弹窗 -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-content edit-modal">
+            <button class="modal-close" onclick="closeEditModal()">&times;</button>
+            <h3 class="modal-title">编辑成员信息</h3>
+            <form id="editForm" class="edit-form">
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label>关系</label>
+                    <input type="text" id="editRelation" required>
+                </div>
+                <div class="form-group">
+                    <label>出生年份</label>
+                    <input type="text" id="editBirth" required>
+                </div>
+                <div class="form-group">
+                    <label>去世年份（可选）</label>
+                    <input type="text" id="editDeath">
+                </div>
+                <div class="form-group">
+                    <label>辈分</label>
+                    <input type="text" id="editGeneration" required>
+                </div>
+                <div class="form-group">
+                    <label>头像设置</label>
+                    <div class="avatar-upload-container">
+                        <div class="avatar-preview" id="editAvatarPreview">👤</div>
+                        <div class="avatar-upload-buttons">
+                            <button type="button" class="avatar-btn" onclick="document.getElementById('editAvatarInput').click()">
+                                📷 上传图片
+                            </button>
+                            <button type="button" class="avatar-btn" onclick="clearEditAvatar()">
+                                🔄 使用Emoji
+                            </button>
+                        </div>
+                        <input type="file" id="editAvatarInput" accept="image/*" style="display: none;" onchange="handleAvatarUpload('edit')">
+                        <input type="text" id="editAvatar" placeholder="👤" style="display: none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>生平故事</label>
+                    <textarea id="editStory" rows="5" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" onclick="closeEditModal()">取消</button>
+                    <button type="submit" class="save-button">💾 保存修改</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 统计数据弹窗 -->
+    <div class="modal-overlay" id="statisticsModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <button class="modal-close" onclick="closeStatisticsModal()">&times;</button>
+            <h3 class="modal-title">📊 家族统计数据</h3>
+            <div class="statistics-content">
+                <div class="stat-card">
+                    <div class="stat-icon">👨‍👩‍👧‍👦</div>
+                    <div class="stat-info">
+                        <div class="stat-label">家族总人数</div>
+                        <div class="stat-value" id="statTotalMembers">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎂</div>
+                    <div class="stat-info">
+                        <div class="stat-label">在世成员</div>
+                        <div class="stat-value" id="statAliveMembers">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🕊️</div>
+                    <div class="stat-info">
+                        <div class="stat-label">已故成员</div>
+                        <div class="stat-value" id="statDeceasedMembers">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🙏</div>
+                    <div class="stat-info">
+                        <div class="stat-label">总祭拜次数</div>
+                        <div class="stat-value" id="statTotalWorships">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-info">
+                        <div class="stat-label">家族世代数</div>
+                        <div class="stat-value" id="statGenerations">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 家族故事弹窗 -->
+    <div class="modal-overlay" id="storiesModal">
+        <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeStoriesModal()">&times;</button>
+            <h3 class="modal-title">📖 家族故事库</h3>
+            <div id="storiesContent"></div>
+            <div style="margin-top: 30px; text-align: center;">
+                <button class="manage-button" onclick="saveFamilyStories()">💾 保存故事</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 纪念日弹窗 -->
+    <div class="modal-overlay" id="remindersModal">
+        <div class="modal-content" style="max-width: 700px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeRemindersModal()">&times;</button>
+            <h3 class="modal-title">🔔 纪念日提醒</h3>
+            <div id="remindersContent"></div>
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="manage-button" onclick="openCustomReminderModal()">➕ 添加自定义纪念日</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自定义纪念日管理弹窗 -->
+    <div class="modal-overlay" id="customReminderModal">
+        <div class="modal-content edit-modal" style="max-width: 600px;">
+            <button class="modal-close" onclick="closeCustomReminderModal()">&times;</button>
+            <h3 class="modal-title">📅 添加自定义纪念日</h3>
+            <form id="customReminderForm" class="edit-form">
+                <div class="form-group">
+                    <label>纪念日期</label>
+                    <input type="date" id="reminderDate" required>
+                </div>
+                <div class="form-group">
+                    <label>关联成员</label>
+                    <select id="reminderMember" required>
+                        <option value="">选择成员</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>纪念日名称</label>
+                    <input type="text" id="reminderName" placeholder="例如：结婚纪念日、纪念日等" required>
+                </div>
+                <div class="form-group">
+                    <label>备注（可选）</label>
+                    <textarea id="reminderNote" rows="3" placeholder="添加备注信息..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" onclick="closeCustomReminderModal()">取消</button>
+                    <button type="submit" class="save-button">💾 保存纪念日</button>
+                </div>
+            </form>
+            
+            <!-- 已添加的自定义纪念日列表 -->
+            <div style="margin-top: 30px;">
+                <h4 style="color: rgba(255, 215, 150, 0.9); font-size: 18px; margin-bottom: 15px;">已添加的自定义纪念日</h4>
+                <div id="customRemindersList" style="max-height: 200px; overflow-y: auto;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 家训编辑弹窗 -->
+    <div class="modal-overlay" id="mottoModal">
+        <div class="modal-content edit-modal">
+            <button class="modal-close" onclick="closeMottoModal()">&times;</button>
+            <h3 class="modal-title">📜 编辑家族家训</h3>
+            <form id="mottoForm" class="edit-form">
+                <div class="form-group">
+                    <label>家训内容</label>
+                    <textarea id="mottoInput" rows="4" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" onclick="closeMottoModal()">取消</button>
+                    <button type="submit" class="save-button">💾 保存家训</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 添加成员弹窗 -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal-content edit-modal">
+            <button class="modal-close" onclick="closeAddModal()">&times;</button>
+            <h3 class="modal-title">添加新成员</h3>
+            <form id="addForm" class="edit-form">
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" id="addName" required>
+                </div>
+                <div class="form-group">
+                    <label>关系</label>
+                    <input type="text" id="addRelation" required>
+                </div>
+                <div class="form-group">
+                    <label>出生年份</label>
+                    <input type="text" id="addBirth" required>
+                </div>
+                <div class="form-group">
+                    <label>去世年份（可选）</label>
+                    <input type="text" id="addDeath">
+                </div>
+                <div class="form-group">
+                    <label>辈分</label>
+                    <select id="addGeneration" required>
+                        <option value="">选择辈分</option>
+                        <option value="第一代">第一代</option>
+                        <option value="第二代">第二代</option>
+                        <option value="第三代">第三代</option>
+                        <option value="第四代">第四代</option>
+                        <option value="第五代">第五代</option>
+                        <option value="第六代">第六代</option>
+                        <option value="第七代">第七代</option>
+                        <option value="第八代">第八代</option>
+                        <option value="第九代">第九代</option>
+                        <option value="第十代">第十代</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>头像设置</label>
+                    <div class="avatar-upload-container">
+                        <div class="avatar-preview" id="addAvatarPreview">👤</div>
+                        <div class="avatar-upload-buttons">
+                            <button type="button" class="avatar-btn" onclick="document.getElementById('addAvatarInput').click()">
+                                📷 上传图片
+                            </button>
+                            <button type="button" class="avatar-btn" onclick="clearAddAvatar()">
+                                🔄 使用Emoji
+                            </button>
+                        </div>
+                        <input type="file" id="addAvatarInput" accept="image/*" style="display: none;" onchange="handleAvatarUpload('add')">
+                        <input type="text" id="addAvatar" placeholder="👤" value="👤" style="display: none;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>生平故事</label>
+                    <textarea id="addStory" rows="5" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" onclick="closeAddModal()">取消</button>
+                    <button type="submit" class="save-button">➕ 添加成员</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 祭拜动画遮罩 -->
+    <div class="worship-overlay" id="worshipOverlay" onclick="closeWorshipOverlay()">
+        <div class="worship-content" onclick="event.stopPropagation()">
+            <div class="worship-emoji">🙏</div>
+            <div class="worship-message" id="worshipMessage">祭拜中...</div>
+            <div class="worship-submessage" id="worshipSubmessage">正在表达您的敬意...</div>
+            
+            <!-- 留言选项 -->
+            <div style="margin-top: 25px; padding: 15px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                <label style="display: flex; align-items: center; cursor: pointer; color: rgba(255,255,255,0.9); font-size: 15px;">
+                    <input type="checkbox" id="leaveMessageCheckbox" style="margin-right: 10px; width: 18px; height: 18px;">
+                    <span>💬 祭拜后留下留言（将显示为弹幕）</span>
+                </label>
+            </div>
+            
+            <button class="worship-complete-button" id="worshipCompleteButton" onclick="completeWorship()" style="display: none;">
+                ✅ 完成
+            </button>
+        </div>
+    </div>
+
+    <!-- 留言输入弹窗 -->
+    <div class="modal-overlay" id="messageInputModal">
+        <div class="modal-content edit-modal" style="max-width: 500px;">
+            <button class="modal-close" onclick="closeMessageInputModal()">&times;</button>
+            <h3 class="modal-title">💬 留下您的留言</h3>
+            <form id="messageForm" class="edit-form">
+                <div class="form-group">
+                    <label>您的名字</label>
+                    <input type="text" id="messageSender" placeholder="请输入您的名字" required>
+                </div>
+                <div class="form-group">
+                    <label>留言内容</label>
+                    <textarea id="messageContent" rows="4" placeholder="写下您想说的话..." required maxlength="100"></textarea>
+                    <div style="text-align: right; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 5px;">
+                        <span id="messageCount">0</span>/100
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" onclick="closeMessageInputModal()">跳过留言</button>
+                    <button type="submit" class="save-button">💬 发送留言</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 弹幕Canvas -->
+    <canvas id="danmakuCanvas"></canvas>
+
+    <!-- 祭拜香火效果 -->
+    <div class="incense-container" id="incenseContainer">
+        <div class="incense"></div>
+        <div class="incense"></div>
+        <div class="incense"></div>
     </div>
 
     <script>
         // ===== 家谱数据 =====
-        const familyData = {
+        let familyData = {
             generations: [
                 {
                     name: "第一代",
@@ -817,8 +2017,16 @@
                     memberCard.style.animationDelay = `${index * 0.2 + memberIndex * 0.1}s`;
                     memberCard.onclick = () => showMemberDetail(member);
 
+                    // 判断头像类型（图片或emoji）
+                    let avatarHtml;
+                    if (member.avatar.startsWith('data:image/')) {
+                        avatarHtml = `<img src="${member.avatar}" alt="${member.name}" class="member-avatar-img">`;
+                    } else {
+                        avatarHtml = member.avatar;
+                    }
+
                     memberCard.innerHTML = `
-                        <div class="member-avatar">${member.avatar}</div>
+                        <div class="member-avatar">${avatarHtml}</div>
                         <div class="member-name">${member.name}</div>
                         <div class="member-relation">${member.relation}</div>
                         <div class="member-years">${member.birth}${member.death ? ' - ' + member.death : ''}</div>
@@ -833,12 +2041,51 @@
 
         // ===== 显示成员详情 =====
         function showMemberDetail(member) {
-            document.getElementById('modalAvatar').textContent = member.avatar;
+            // 设置当前编辑的成员
+            currentEditingMember = member;
+
+            const modalAvatar = document.getElementById('modalAvatar');
+
+            // 判断头像类型（图片或emoji）
+            if (member.avatar.startsWith('data:image/')) {
+                modalAvatar.innerHTML = `<img src="${member.avatar}" alt="${member.name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
+            } else {
+                modalAvatar.textContent = member.avatar;
+                modalAvatar.innerHTML = member.avatar;
+            }
+
             document.getElementById('modalName').textContent = member.name;
             document.getElementById('modalRelation').textContent = member.relation;
             document.getElementById('modalBirth').textContent = member.birth + (member.death ? ' - ' + member.death : '至今');
             document.getElementById('modalGeneration').textContent = member.generation;
             document.getElementById('modalStory').textContent = member.story;
+
+            // 检查是否已去世，显示祭拜功能
+            const worshipButton = document.getElementById('worshipButton');
+            const worshipInfo = document.getElementById('worshipInfo');
+
+            if (member.death) {
+                // 已去世，显示祭拜功能和祭拜统计
+                worshipButton.style.display = 'block';
+                worshipInfo.style.display = 'block';
+
+                // 显示祭拜统计
+                const worshipCount = member.worshipCount || 0;
+                const lastWorship = member.lastWorship || null;
+
+                document.getElementById('worshipCount').textContent = worshipCount;
+
+                if (lastWorship) {
+                    const date = new Date(lastWorship);
+                    document.getElementById('lastWorshipTime').textContent = date.toLocaleString('zh-CN');
+                } else {
+                    document.getElementById('lastWorshipTime').textContent = '从未祭拜';
+                }
+            } else {
+                // 在世，不显示祭拜功能
+                worshipButton.style.display = 'none';
+                worshipInfo.style.display = 'none';
+            }
 
             document.getElementById('modalOverlay').classList.add('active');
         }
@@ -846,6 +2093,131 @@
         // ===== 关闭弹窗 =====
         function closeModal() {
             document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        // ===== 祭拜功能 =====
+        function worshipMember() {
+            if (!currentEditingMember || !currentEditingMember.death) {
+                alert('只有已故成员才能祭拜');
+                return;
+            }
+
+            // 显示祭拜动画
+            const worshipOverlay = document.getElementById('worshipOverlay');
+            worshipOverlay.classList.add('active');
+
+            // 隐藏完成按钮（重新祭拜时）
+            document.getElementById('worshipCompleteButton').style.display = 'none';
+
+            // 更新祭拜消息
+            document.getElementById('worshipMessage').textContent = `正在祭拜 ${currentEditingMember.name}...`;
+            document.getElementById('worshipSubmessage').textContent = '请稍候...';
+
+            // 模拟祭拜过程
+            setTimeout(() => {
+                document.getElementById('worshipSubmessage').textContent = '上香...';
+            }, 1000);
+
+            setTimeout(() => {
+                document.getElementById('worshipSubmessage').textContent = '鞠躬致敬...';
+            }, 2000);
+
+            setTimeout(() => {
+                document.getElementById('worshipSubmessage').textContent = '完成祭拜...';
+            }, 3000);
+
+            // 3.5秒后显示完成按钮
+            setTimeout(() => {
+                document.getElementById('worshipCompleteButton').style.display = 'block';
+            }, 3500);
+
+            // 更新祭拜数据（4秒后）
+            const worshipTimer = setTimeout(() => {
+                try {
+                    console.log('===== 开始更新祭拜数据 =====');
+
+                    // 更新祭拜次数
+                    if (!currentEditingMember.worshipCount) {
+                        currentEditingMember.worshipCount = 0;
+                    }
+                    currentEditingMember.worshipCount++;
+                    console.log('祭拜次数更新为:', currentEditingMember.worshipCount);
+
+                    // 更新最后祭拜时间
+                    currentEditingMember.lastWorship = new Date().toISOString();
+                    console.log('祭拜时间更新为:', currentEditingMember.lastWorship);
+
+                    // 保存数据
+                    saveToLocalStorage();
+                    console.log('数据保存成功');
+
+                    // 调用完成函数
+                    completeWorship();
+                } catch (error) {
+                    console.error('❌ 祭拜过程中出错:', error);
+
+                    // 出错时也要关闭动画
+                    const overlay = document.getElementById('worshipOverlay');
+                    if (overlay) {
+                        overlay.classList.remove('active');
+                    }
+
+                    alert('祭拜过程中出现错误，但数据已保存。\n错误信息: ' + error.message);
+                }
+            }, 4000);
+
+            // 5秒后强制关闭（如果上面的定时器没执行）
+            setTimeout(() => {
+                const overlay = document.getElementById('worshipOverlay');
+                if (overlay && overlay.classList.contains('active')) {
+                    console.log('⚠️ 强制关闭祭拜动画（备用机制）');
+                    overlay.classList.remove('active');
+                }
+            }, 5000);
+        }
+
+        // ===== 关闭祭拜动画 =====
+        function closeWorshipOverlay() {
+            // 直接关闭祭拜动画
+            document.getElementById('worshipOverlay').classList.remove('active');
+        }
+
+        // ===== 完成祭拜 =====
+        function completeWorship() {
+            console.log('执行完成祭拜函数');
+
+            // 关闭祭拜动画
+            const overlay = document.getElementById('worshipOverlay');
+            if (overlay) {
+                overlay.classList.remove('active');
+                console.log('✅ 祭拜动画已关闭');
+            }
+
+            // 更新祭拜排行榜
+            updateWorshipRank();
+
+            // 检查是否勾选了留言选项
+            const leaveMessage = document.getElementById('leaveMessageCheckbox').checked;
+            
+            if (leaveMessage) {
+                // 打开留言输入弹窗
+                openMessageInputModal();
+            } else {
+                // 不留言，直接完成
+                finishWorship();
+            }
+        }
+
+        function finishWorship() {
+            // 刷新详情弹窗以显示更新后的祭拜统计
+            if (currentEditingMember) {
+                showMemberDetail(currentEditingMember);
+            }
+
+            // 显示成功提示
+            if (currentEditingMember) {
+                showSuccessMessage(`✅ 已成功祭拜 ${currentEditingMember.name}`);
+            }
         }
 
         // ===== 进入祠堂 =====
@@ -866,15 +2238,1090 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
+                closeEditModal();
+                closeAddModal();
             }
         });
 
+        // ===== 数据存储 =====
+        function saveToLocalStorage() {
+            try {
+                const dataStr = JSON.stringify(familyData);
+                localStorage.setItem('familyData', dataStr);
+
+                // 验证是否保存成功
+                const saved = localStorage.getItem('familyData');
+                if (saved !== dataStr) {
+                    console.error('数据保存验证失败');
+                    return false;
+                }
+
+                console.log('数据保存成功，大小:', (dataStr.length / 1024).toFixed(2), 'KB');
+                return true;
+            } catch (error) {
+                console.error('保存数据失败:', error);
+                alert('保存失败！可能是数据太大，请减少图片数量或使用更小的图片。\n错误信息: ' + error.message);
+                return false;
+            }
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem('familyData');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (parsed && parsed.generations) {
+                        familyData = parsed;
+                        console.log('数据加载成功，共', parsed.generations.length, '代');
+                        return true;
+                    }
+                }
+                console.log('未找到保存的数据，使用默认数据');
+                return false;
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                alert('加载数据失败！已重置为默认数据。\n错误信息: ' + error.message);
+                return false;
+            }
+        }
+
+        function clearLocalStorage() {
+            if (confirm('确定要清除所有保存的数据吗？此操作不可恢复！')) {
+                localStorage.removeItem('familyData');
+                location.reload();
+            }
+        }
+
+        // ===== 导出数据 =====
+        function exportData() {
+            try {
+                const dataStr = JSON.stringify(familyData, null, 2);
+                const blob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = '家谱数据_' + new Date().toLocaleDateString() + '.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                showSuccessMessage('✅ 数据已导出');
+                console.log('数据导出成功，大小:', (dataStr.length / 1024).toFixed(2), 'KB');
+            } catch (error) {
+                console.error('导出数据失败:', error);
+                alert('导出数据失败！\n错误信息: ' + error.message);
+            }
+        }
+
+        // ===== 导入数据 =====
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+
+                    // 验证数据格式
+                    if (!data.generations || !Array.isArray(data.generations)) {
+                        throw new Error('数据格式不正确');
+                    }
+
+                    if (confirm('导入数据将覆盖当前所有数据，确定要继续吗？')) {
+                        familyData = data;
+
+                        // 保存到localStorage
+                        if (saveToLocalStorage()) {
+                            // 重新生成家谱树
+                            generateFamilyTree();
+
+                            showSuccessMessage('✅ 数据已导入');
+                            console.log('数据导入成功');
+                        }
+                    }
+                } catch (error) {
+                    console.error('导入数据失败:', error);
+                    alert('导入数据失败！请确保选择的是正确的家谱数据文件。\n错误信息: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+
+            // 清空input，允许重复选择同一文件
+            event.target.value = '';
+        }
+
+        // ===== 显示成功提示 =====
+        function showSuccessMessage(message) {
+            const existing = document.querySelector('.success-message');
+            if (existing) {
+                existing.remove();
+            }
+
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.textContent = message;
+            document.body.appendChild(successDiv);
+
+            setTimeout(() => {
+                successDiv.style.opacity = '0';
+                successDiv.style.transform = 'translateX(50px)';
+                setTimeout(() => successDiv.remove(), 300);
+            }, 2000);
+        }
+
+        // ===== 当前编辑的成员 =====
+        let currentEditingMember = null;
+
+        // ===== 头像上传相关函数 =====
+        function handleAvatarUpload(type) {
+            const inputId = type + 'AvatarInput';
+            const previewId = type + 'AvatarPreview';
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+            const avatarInput = document.getElementById(type + 'Avatar');
+
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+
+                // 检查文件大小（限制为5MB）
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('图片大小不能超过5MB，请选择较小的图片');
+                    input.value = '';
+                    return;
+                }
+
+                // 读取文件并转换为Base64
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // 压缩图片
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+
+                        // 设置最大尺寸为200x200
+                        const maxSize = 200;
+                        let width = img.width;
+                        let height = img.height;
+
+                        if (width > height) {
+                            if (width > maxSize) {
+                                height *= maxSize / width;
+                                width = maxSize;
+                            }
+                        } else {
+                            if (height > maxSize) {
+                                width *= maxSize / height;
+                                height = maxSize;
+                            }
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+
+                        // 绘制图片
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        // 转换为Base64（压缩质量0.8）
+                        const base64Data = canvas.toDataURL('image/jpeg', 0.8);
+
+                        // 更新预览
+                        preview.innerHTML = `<img src="${base64Data}" alt="头像预览">`;
+                        preview.style.borderRadius = '50%';
+                        preview.style.background = 'transparent';
+
+                        // 保存到隐藏的输入框
+                        avatarInput.value = base64Data;
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function clearEditAvatar() {
+            const preview = document.getElementById('editAvatarPreview');
+            const input = document.getElementById('editAvatarInput');
+            const avatarInput = document.getElementById('editAvatar');
+
+            preview.innerHTML = '👤';
+            preview.style.borderRadius = '50%';
+            preview.style.background = 'rgba(255, 255, 255, 0.1)';
+            input.value = '';
+            avatarInput.value = '👤';
+        }
+
+        function clearAddAvatar() {
+            const preview = document.getElementById('addAvatarPreview');
+            const input = document.getElementById('addAvatarInput');
+            const avatarInput = document.getElementById('addAvatar');
+
+            preview.innerHTML = '👤';
+            preview.style.borderRadius = '50%';
+            preview.style.background = 'rgba(255, 255, 255, 0.1)';
+            input.value = '';
+            avatarInput.value = '👤';
+        }
+
+        // ===== 更新头像预览函数 =====
+        function updateAvatarPreview(type, avatarValue) {
+            const preview = document.getElementById(type + 'AvatarPreview');
+
+            if (avatarValue.startsWith('data:image/')) {
+                // 是图片数据
+                preview.innerHTML = `<img src="${avatarValue}" alt="头像预览">`;
+                preview.style.borderRadius = '50%';
+                preview.style.background = 'transparent';
+            } else {
+                // 是emoji
+                preview.innerHTML = avatarValue;
+                preview.style.borderRadius = '50%';
+                preview.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        }
+
+        // ===== 打开编辑弹窗 =====
+        function openEditModal() {
+            if (!currentEditingMember) {
+                alert('请先选择一个成员');
+                return;
+            }
+
+            // 填充表单
+            document.getElementById('editName').value = currentEditingMember.name;
+            document.getElementById('editRelation').value = currentEditingMember.relation;
+            document.getElementById('editBirth').value = currentEditingMember.birth;
+            document.getElementById('editDeath').value = currentEditingMember.death || '';
+            document.getElementById('editGeneration').value = currentEditingMember.generation;
+            document.getElementById('editAvatar').value = currentEditingMember.avatar;
+            document.getElementById('editStory').value = currentEditingMember.story;
+
+            // 更新头像预览
+            updateAvatarPreview('edit', currentEditingMember.avatar);
+
+            document.getElementById('editModal').classList.add('active');
+            closeModal();
+        }
+
+        // ===== 关闭编辑弹窗 =====
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('active');
+        }
+
+        // ===== 处理编辑表单提交 =====
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (!currentEditingMember) {
+                alert('请先选择一个成员');
+                return;
+            }
+
+            // 更新成员信息
+            currentEditingMember.name = document.getElementById('editName').value;
+            currentEditingMember.relation = document.getElementById('editRelation').value;
+            currentEditingMember.birth = document.getElementById('editBirth').value;
+            currentEditingMember.death = document.getElementById('editDeath').value || null;
+            currentEditingMember.generation = document.getElementById('editGeneration').value;
+            currentEditingMember.avatar = document.getElementById('editAvatar').value;
+            currentEditingMember.story = document.getElementById('editStory').value;
+
+            // 保存到localStorage
+            if (saveToLocalStorage()) {
+                // 重新生成家谱树
+                generateFamilyTree();
+
+                // 关闭弹窗
+                closeEditModal();
+
+                // 显示成功提示
+                showSuccessMessage('✅ 成员信息已更新');
+            }
+        });
+
+        // ===== 删除成员 =====
+        function deleteMember() {
+            if (!currentEditingMember) {
+                alert('请先选择一个成员');
+                return;
+            }
+
+            if (!confirm('确定要删除这位成员吗？此操作不可恢复。')) {
+                return;
+            }
+
+            // 查找并删除成员
+            for (let gen of familyData.generations) {
+                const index = gen.members.findIndex(m => m.id === currentEditingMember.id);
+                if (index !== -1) {
+                    gen.members.splice(index, 1);
+                    break;
+                }
+            }
+
+            // 保存到localStorage
+            if (saveToLocalStorage()) {
+                // 重新生成家谱树
+                generateFamilyTree();
+
+                // 关闭弹窗
+                closeModal();
+
+                // 显示成功提示
+                showSuccessMessage('✅ 成员已删除');
+            }
+        }
+
+        // ===== 打开添加成员弹窗 =====
+        function openAddModal() {
+            // 清空表单
+            document.getElementById('addName').value = '';
+            document.getElementById('addRelation').value = '';
+            document.getElementById('addBirth').value = '';
+            document.getElementById('addDeath').value = '';
+            document.getElementById('addGeneration').value = '';
+            document.getElementById('addAvatar').value = '👤';
+            document.getElementById('addStory').value = '';
+
+            document.getElementById('addModal').classList.add('active');
+        }
+
+        // ===== 关闭添加成员弹窗 =====
+        function closeAddModal() {
+            document.getElementById('addModal').classList.remove('active');
+        }
+
+        // ===== 处理添加成员表单提交 =====
+        document.getElementById('addForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 获取表单数据
+            const generation = document.getElementById('addGeneration').value;
+            if (!generation) {
+                alert('请选择辈分');
+                return;
+            }
+
+            // 查找对应的世代
+            let generationObj = familyData.generations.find(g => g.name === generation);
+
+            // 如果不存在该世代，创建新世代
+            if (!generationObj) {
+                generationObj = {
+                    name: generation,
+                    members: []
+                };
+                familyData.generations.push(generationObj);
+            }
+
+            // 生成新ID
+            const maxId = Math.max(...familyData.generations.flatMap(g => g.members.map(m => m.id)), 0);
+            const newId = maxId + 1;
+
+            // 创建新成员
+            const newMember = {
+                id: newId,
+                name: document.getElementById('addName').value,
+                relation: document.getElementById('addRelation').value,
+                birth: document.getElementById('addBirth').value,
+                death: document.getElementById('addDeath').value || null,
+                generation: generation,
+                avatar: document.getElementById('addAvatar').value,
+                story: document.getElementById('addStory').value
+            };
+
+            // 添加到世代
+            generationObj.members.push(newMember);
+
+            // 保存到localStorage
+            if (saveToLocalStorage()) {
+                // 重新生成家谱树
+                generateFamilyTree();
+
+                // 关闭弹窗
+                closeAddModal();
+
+                // 显示成功提示
+                showSuccessMessage('✅ 新成员已添加');
+            }
+        });
+
+        // ===== 修改显示成员详情函数 =====
+        const originalShowMemberDetail = showMemberDetail;
+        showMemberDetail = function(member) {
+            currentEditingMember = member;
+            originalShowMemberDetail(member);
+        };
+
+        // ===== 家族家训功能 =====
+        let familyMotto = '诚以立身，勤以立业，孝以传家，德以处世';
+
+        function editMotto() {
+            document.getElementById('mottoInput').value = familyMotto;
+            document.getElementById('mottoModal').classList.add('active');
+        }
+
+        function closeMottoModal() {
+            document.getElementById('mottoModal').classList.remove('active');
+        }
+
+        document.getElementById('mottoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            familyMotto = document.getElementById('mottoInput').value;
+            document.getElementById('mottoText').textContent = familyMotto;
+            localStorage.setItem('familyMotto', familyMotto);
+            closeMottoModal();
+            showSuccessMessage('✅ 家训已更新');
+        });
+
+        // ===== 祭拜排行榜功能 =====
+        function updateWorshipRank() {
+            const allMembers = familyData.generations.flatMap(gen => gen.members);
+            const worshippedMembers = allMembers.filter(m => (m.worshipCount || 0) > 0)
+                .sort((a, b) => (b.worshipCount || 0) - (a.worshipCount || 0))
+                .slice(0, 10); // 显示前10名
+
+            const rankList = document.getElementById('worshipRankList');
+            if (worshippedMembers.length === 0) {
+                rankList.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.5); padding: 20px;">暂无祭拜记录，开始祭拜吧！</p>';
+            } else {
+                rankList.innerHTML = worshippedMembers.map((member, index) => {
+                    // 前三名特殊样式
+                    let rankNumber = index + 1;
+                    let rankEmoji = rankNumber;
+                    if (rankNumber === 1) rankEmoji = '🥇';
+                    if (rankNumber === 2) rankEmoji = '🥈';
+                    if (rankNumber === 3) rankEmoji = '🥉';
+                    
+                    return `
+                    <div class="worship-rank-item">
+                        <div class="worship-rank-number">${rankEmoji}</div>
+                        <div class="worship-rank-name">${member.name} <span style="font-size: 12px; color: rgba(255,255,255,0.5);">(${member.relation})</span></div>
+                        <div class="worship-rank-count">${member.worshipCount} 次</div>
+                    </div>
+                `}).join('');
+            }
+        }
+
+        // ===== 统计数据功能 =====
+        function showStatistics() {
+            const totalMembers = familyData.generations.reduce((sum, gen) => sum + gen.members.length, 0);
+            const aliveMembers = familyData.generations.reduce((sum, gen) => 
+                sum + gen.members.filter(m => !m.death).length, 0);
+            const deceasedMembers = familyData.generations.reduce((sum, gen) => 
+                sum + gen.members.filter(m => m.death).length, 0);
+            const totalWorships = familyData.generations.reduce((sum, gen) => 
+                sum + gen.members.reduce((s, m) => s + (m.worshipCount || 0), 0), 0);
+            const generations = familyData.generations.length;
+
+            document.getElementById('statTotalMembers').textContent = totalMembers + ' 人';
+            document.getElementById('statAliveMembers').textContent = aliveMembers + ' 人';
+            document.getElementById('statDeceasedMembers').textContent = deceasedMembers + ' 人';
+            document.getElementById('statTotalWorships').textContent = totalWorships + ' 次';
+            document.getElementById('statGenerations').textContent = generations + ' 代';
+
+            document.getElementById('statisticsModal').classList.add('active');
+        }
+
+        function closeStatisticsModal() {
+            document.getElementById('statisticsModal').classList.remove('active');
+        }
+
+        // ===== 搜索和筛选功能 =====
+        function searchMembers() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const generationFilter = document.getElementById('filterGeneration').value;
+
+            const familyTree = document.getElementById('familyTree');
+            familyTree.innerHTML = '';
+
+            familyData.generations.forEach((generation, index) => {
+                // 筛选世代
+                if (generationFilter && generation.name !== generationFilter) {
+                    return;
+                }
+
+                const filteredMembers = generation.members.filter(member => {
+                    // 搜索功能
+                    if (searchText) {
+                        return member.name.toLowerCase().includes(searchText) ||
+                               member.relation.toLowerCase().includes(searchText) ||
+                               member.birth.includes(searchText) ||
+                               (member.death && member.death.includes(searchText));
+                    }
+                    return true;
+                });
+
+                if (filteredMembers.length === 0) {
+                    return;
+                }
+
+                const generationDiv = document.createElement('div');
+                generationDiv.className = 'generation';
+                generationDiv.style.animationDelay = `${index * 0.2}s`;
+
+                filteredMembers.forEach((member, memberIndex) => {
+                    const memberCard = document.createElement('div');
+                    memberCard.className = 'member-card';
+                    memberCard.style.animationDelay = `${index * 0.2 + memberIndex * 0.1}s`;
+                    memberCard.onclick = () => showMemberDetail(member);
+
+                    // 高亮搜索匹配
+                    const isMatch = searchText && (member.name.toLowerCase().includes(searchText) || 
+                                                member.relation.toLowerCase().includes(searchText));
+                    memberCard.style.borderColor = isMatch ? 'rgba(255, 215, 150, 0.8)' : '';
+
+                    // 判断头像类型
+                    let avatarDisplay;
+                    if (member.avatar.startsWith('data:image/')) {
+                        avatarDisplay = `<img src="${member.avatar}" alt="${member.name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
+                    } else {
+                        avatarDisplay = member.avatar;
+                    }
+
+                    memberCard.innerHTML = `
+                        <div class="member-avatar">${avatarDisplay}</div>
+                        <div class="member-name">${member.name}</div>
+                        <div class="member-relation">${member.relation}</div>
+                        <div class="member-years">${member.birth}${member.death ? ' - ' + member.death : ''}</div>
+                    `;
+
+                    generationDiv.appendChild(memberCard);
+                });
+
+                familyTree.appendChild(generationDiv);
+            });
+
+            // 显示搜索结果数量
+            if (searchText || generationFilter) {
+                const resultCount = familyTree.querySelectorAll('.member-card').length;
+                if (resultCount === 0) {
+                    familyTree.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.5); padding: 40px;">未找到匹配的成员</p>';
+                }
+            }
+        }
+
+        function filterMembers() {
+            searchMembers();
+        }
+
+        function populateGenerationFilter() {
+            const select = document.getElementById('filterGeneration');
+            select.innerHTML = '<option value="">全部辈分</option>';
+            familyData.generations.forEach(gen => {
+                const option = document.createElement('option');
+                option.value = gen.name;
+                option.textContent = gen.name;
+                select.appendChild(option);
+            });
+        }
+
+        // ===== 家族故事功能 =====
+        let familyStories = {};
+
+        function showFamilyStories() {
+            const storiesContent = document.getElementById('storiesContent');
+            storiesContent.innerHTML = '';
+
+            familyData.generations.forEach((gen, index) => {
+                const story = familyStories[gen.name] || `这是${gen.name}的故事，记录了这一代人的奋斗历程和家族传承...`;
+
+                storiesContent.innerHTML += `
+                    <div class="story-generation">
+                        <div class="story-generation-title">${gen.name}</div>
+                        <textarea class="story-textarea" id="story_${index}" rows="4">${story}</textarea>
+                    </div>
+                `;
+            });
+
+            document.getElementById('storiesModal').classList.add('active');
+        }
+
+        function closeStoriesModal() {
+            document.getElementById('storiesModal').classList.remove('active');
+        }
+
+        function saveFamilyStories() {
+            familyData.generations.forEach((gen, index) => {
+                const textarea = document.getElementById(`story_${index}`);
+                if (textarea) {
+                    familyStories[gen.name] = textarea.value;
+                }
+            });
+            localStorage.setItem('familyStories', JSON.stringify(familyStories));
+            closeStoriesModal();
+            showSuccessMessage('✅ 家族故事已保存');
+        }
+
+        // ===== 纪念日提醒功能 =====
+        function showReminders() {
+            const remindersContent = document.getElementById('remindersContent');
+            const allMembers = familyData.generations.flatMap(gen => gen.members);
+            const today = new Date();
+            const currentYear = today.getFullYear();
+
+            // 收集所有生日和忌日
+            const reminders = [];
+
+            allMembers.forEach(member => {
+                // 生日提醒
+                if (member.birth) {
+                    const birthDate = new Date(currentYear, parseInt(member.birth.substring(5, 7)) - 1, parseInt(member.birth.substring(8, 10)));
+                    const daysUntilBirth = Math.ceil((birthDate - today) / (1000 * 60 * 60 * 24));
+
+                    if (daysUntilBirth >= 0 && daysUntilBirth <= 30) {
+                        reminders.push({
+                            type: 'birthday',
+                            name: member.name,
+                            date: birthDate.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' }),
+                            days: daysUntilBirth,
+                            age: currentYear - parseInt(member.birth.substring(0, 4))
+                        });
+                    }
+                }
+
+                // 忌日提醒（只对已故成员）
+                if (member.death) {
+                    const deathDate = new Date(currentYear, parseInt(member.death.substring(5, 7)) - 1, parseInt(member.death.substring(8, 10)));
+                    const daysUntilDeath = Math.ceil((deathDate - today) / (1000 * 60 * 60 * 24));
+
+                    if (daysUntilDeath >= 0 && daysUntilDeath <= 30) {
+                        reminders.push({
+                            type: 'death',
+                            name: member.name,
+                            date: deathDate.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' }),
+                            days: daysUntilDeath,
+                            years: currentYear - parseInt(member.death.substring(0, 4))
+                        });
+                    }
+                }
+            });
+
+            // 添加自定义纪念日
+            if (customReminders && customReminders.length > 0) {
+                customReminders.forEach((reminder, index) => {
+                    const reminderDate = new Date(currentYear, reminder.month - 1, reminder.day);
+                    const daysUntilReminder = Math.ceil((reminderDate - today) / (1000 * 60 * 60 * 24));
+
+                    if (daysUntilReminder >= 0 && daysUntilReminder <= 30) {
+                        reminders.push({
+                            type: 'custom',
+                            name: reminder.name,
+                            memberName: reminder.memberName,
+                            date: reminderDate.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' }),
+                            days: daysUntilReminder,
+                            note: reminder.note,
+                            index: index
+                        });
+                    }
+                });
+            }
+
+            // 按天数排序
+            reminders.sort((a, b) => a.days - b.days);
+
+            if (reminders.length === 0) {
+                remindersContent.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.5); padding: 40px;">未来30天内没有纪念日</p>';
+            } else {
+                remindersContent.innerHTML = reminders.map(reminder => {
+                    if (reminder.type === 'custom') {
+                        return `
+                            <div class="reminder-item custom">
+                                <div class="reminder-icon">📅</div>
+                                <div class="reminder-info">
+                                    <div class="reminder-name">${reminder.name}</div>
+                                    <div class="reminder-date">
+                                        ${reminder.memberName ? `关联：${reminder.memberName} · ` : ''}${reminder.date}
+                                    </div>
+                                    ${reminder.note ? `<div class="reminder-note">${reminder.note}</div>` : ''}
+                                </div>
+                                <div class="reminder-days">${reminder.days === 0 ? '今天' : reminder.days + '天后'}</div>
+                                <button class="reminder-delete" onclick="deleteCustomReminder(${reminder.index})" style="margin-left: 10px;">删除</button>
+                            </div>
+                        `;
+                    } else {
+                        return `
+                            <div class="reminder-item ${reminder.type}">
+                                <div class="reminder-icon">${reminder.type === 'birthday' ? '🎂' : '🕊️'}</div>
+                                <div class="reminder-info">
+                                    <div class="reminder-name">${reminder.name}</div>
+                                    <div class="reminder-date">
+                                        ${reminder.type === 'birthday' ? '生日' : '忌日'}：${reminder.date}
+                                        ${reminder.type === 'birthday' ? `（${reminder.age}岁）` : `（${reminder.years}周年）`}
+                                    </div>
+                                </div>
+                                <div class="reminder-days">${reminder.days === 0 ? '今天' : reminder.days + '天后'}</div>
+                            </div>
+                        `;
+                    }
+                }).join('');
+            }
+
+            document.getElementById('remindersModal').classList.add('active');
+        }
+
+        function closeRemindersModal() {
+            document.getElementById('remindersModal').classList.remove('active');
+        }
+
+        // ===== 自定义纪念日管理 =====
+        let customReminders = [];
+
+        function openCustomReminderModal() {
+            // 填充成员列表
+            const memberSelect = document.getElementById('reminderMember');
+            const allMembers = familyData.generations.flatMap(gen => gen.members);
+            memberSelect.innerHTML = '<option value="">选择成员（可选）</option>' + 
+                allMembers.map(m => `<option value="${m.id}">${m.name} - ${m.relation}</option>`).join('');
+            
+            // 加载自定义纪念日列表
+            renderCustomRemindersList();
+            
+            document.getElementById('customReminderModal').classList.add('active');
+        }
+
+        function closeCustomReminderModal() {
+            document.getElementById('customReminderModal').classList.remove('active');
+            document.getElementById('customReminderForm').reset();
+        }
+
+        document.getElementById('customReminderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const dateInput = document.getElementById('reminderDate').value;
+            const memberId = document.getElementById('reminderMember').value;
+            const name = document.getElementById('reminderName').value;
+            const note = document.getElementById('reminderNote').value;
+            
+            const date = new Date(dateInput);
+            
+            // 查找成员名称
+            let memberName = '';
+            if (memberId) {
+                const allMembers = familyData.generations.flatMap(gen => gen.members);
+                const member = allMembers.find(m => m.id === memberId);
+                if (member) {
+                    memberName = member.name;
+                }
+            }
+            
+            const newReminder = {
+                id: Date.now(),
+                date: dateInput,
+                month: date.getMonth() + 1,
+                day: date.getDate(),
+                memberId: memberId,
+                memberName: memberName,
+                name: name,
+                note: note
+            };
+            
+            customReminders.push(newReminder);
+            saveCustomReminders();
+            renderCustomRemindersList();
+            showSuccessMessage('✅ 纪念日已添加');
+            
+            // 清空表单
+            document.getElementById('customReminderForm').reset();
+        });
+
+        function renderCustomRemindersList() {
+            const listContainer = document.getElementById('customRemindersList');
+            
+            if (customReminders.length === 0) {
+                listContainer.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.5); padding: 20px;">暂无自定义纪念日</p>';
+                return;
+            }
+            
+            // 按日期排序
+            const sortedReminders = [...customReminders].sort((a, b) => {
+                if (a.month !== b.month) return a.month - b.month;
+                return a.day - b.day;
+            });
+            
+            listContainer.innerHTML = sortedReminders.map((reminder, index) => `
+                <div class="reminder-item custom" style="margin-bottom: 10px;">
+                    <div class="reminder-icon">📅</div>
+                    <div class="reminder-info">
+                        <div class="reminder-name">${reminder.name}</div>
+                        <div class="reminder-date">
+                            ${reminder.month}月${reminder.day}日
+                            ${reminder.memberName ? ` · ${reminder.memberName}` : ''}
+                        </div>
+                        ${reminder.note ? `<div class="reminder-note">${reminder.note}</div>` : ''}
+                    </div>
+                    <button class="reminder-delete" onclick="deleteCustomReminderByIndex(${customReminders.indexOf(reminder)})">删除</button>
+                </div>
+            `).join('');
+        }
+
+        function deleteCustomReminder(index) {
+            if (confirm('确定要删除这个纪念日吗？')) {
+                customReminders.splice(index, 1);
+                saveCustomReminders();
+                showReminders(); // 刷新纪念日列表
+                showSuccessMessage('✅ 纪念日已删除');
+            }
+        }
+
+        function deleteCustomReminderByIndex(index) {
+            if (confirm('确定要删除这个纪念日吗？')) {
+                customReminders.splice(index, 1);
+                saveCustomReminders();
+                renderCustomRemindersList();
+                showSuccessMessage('✅ 纪念日已删除');
+            }
+        }
+
+        function saveCustomReminders() {
+            localStorage.setItem('customReminders', JSON.stringify(customReminders));
+        }
+
+        function loadCustomReminders() {
+            const saved = localStorage.getItem('customReminders');
+            if (saved) {
+                try {
+                    customReminders = JSON.parse(saved);
+                } catch (e) {
+                    console.error('加载自定义纪念日失败:', e);
+                    customReminders = [];
+                }
+            }
+        }
+
+        // ===== 留言和弹幕功能 =====
+        let danmakuMessages = [];
+        let danmakuCanvas, danmakuCtx;
+        let danmakuAnimationId;
+
+        function openMessageInputModal() {
+            document.getElementById('messageInputModal').classList.add('active');
+            document.getElementById('messageSender').value = '';
+            document.getElementById('messageContent').value = '';
+            document.getElementById('messageCount').textContent = '0';
+            document.getElementById('leaveMessageCheckbox').checked = false;
+        }
+
+        function closeMessageInputModal() {
+            document.getElementById('messageInputModal').classList.remove('active');
+            // 如果祭拜完成了，显示成功提示
+            if (currentEditingMember) {
+                finishWorship();
+            }
+        }
+
+        // 字数统计
+        document.getElementById('messageContent').addEventListener('input', function() {
+            const count = this.value.length;
+            document.getElementById('messageCount').textContent = count;
+            if (count > 100) {
+                this.value = this.value.substring(0, 100);
+                document.getElementById('messageCount').textContent = '100';
+            }
+        });
+
+        // 提交留言
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const sender = document.getElementById('messageSender').value.trim();
+            const content = document.getElementById('messageContent').value.trim();
+            
+            if (!sender || !content) {
+                alert('请填写名字和留言内容');
+                return;
+            }
+            
+            // 创建弹幕消息
+            const danmaku = {
+                id: Date.now(),
+                sender: sender,
+                content: content,
+                memberName: currentEditingMember ? currentEditingMember.name : '',
+                memberRelation: currentEditingMember ? currentEditingMember.relation : '',
+                worshipCount: currentEditingMember ? (currentEditingMember.worshipCount || 0) : 0,
+                time: new Date().toISOString(),
+                x: Math.random() * (window.innerWidth - 300) + 100,
+                y: Math.random() * (window.innerHeight - 200) + 100,
+                speed: Math.random() * 0.8 + 0.5,
+                color: getRandomDanmakuColor()
+            };
+            
+            danmakuMessages.push(danmaku);
+            saveDanmakuMessages();
+            
+            // 关闭留言弹窗
+            closeMessageInputModal();
+            
+            // 显示成功提示
+            showSuccessMessage(`✅ 留言已发送，将以弹幕形式显示`);
+            
+            // 如果弹幕动画未运行，启动它
+            if (!danmakuAnimationId) {
+                initDanmaku();
+                animateDanmaku();
+            }
+        });
+
+        function getRandomDanmakuColor() {
+            const colors = [
+                'rgba(255, 255, 255, 0.95)',
+                'rgba(255, 215, 0, 0.95)',
+                'rgba(168, 216, 234, 0.95)',
+                'rgba(255, 100, 100, 0.95)',
+                'rgba(100, 255, 100, 0.95)',
+                'rgba(255, 150, 50, 0.95)',
+                'rgba(200, 150, 255, 0.95)'
+            ];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function saveDanmakuMessages() {
+            // 只保存最近100条弹幕
+            const savedMessages = danmakuMessages.slice(-100);
+            localStorage.setItem('danmakuMessages', JSON.stringify(savedMessages));
+        }
+
+        function loadDanmakuMessages() {
+            const saved = localStorage.getItem('danmakuMessages');
+            if (saved) {
+                try {
+                    danmakuMessages = JSON.parse(saved);
+                    // 更新所有弹幕的速度
+                    danmakuMessages.forEach((d, idx) => {
+                        d.speed = Math.random() * 0.8 + 0.5;
+                        console.log(`弹幕 ${idx + 1} 速度: ${d.speed}`);
+                    });
+                    console.log('已加载弹幕消息:', danmakuMessages.length);
+                } catch (e) {
+                    console.error('加载弹幕消息失败:', e);
+                    danmakuMessages = [];
+                }
+            }
+        }
+
+        function initDanmaku() {
+            danmakuCanvas = document.getElementById('danmakuCanvas');
+            danmakuCtx = danmakuCanvas.getContext('2d');
+            
+            // 设置canvas尺寸
+            danmakuCanvas.width = window.innerWidth;
+            danmakuCanvas.height = window.innerHeight;
+            
+            // 窗口大小改变时重新设置
+            window.addEventListener('resize', function() {
+                danmakuCanvas.width = window.innerWidth;
+                danmakuCanvas.height = window.innerHeight;
+            });
+        }
+
+        function animateDanmaku() {
+            danmakuCtx.clearRect(0, 0, danmakuCanvas.width, danmakuCanvas.height);
+            
+            const currentTime = new Date();
+            
+            danmakuMessages.forEach((danmaku, index) => {
+                // 确保速度在正确范围内
+                if (danmaku.speed < 0.5 || danmaku.speed > 1.3) {
+                    danmaku.speed = Math.random() * 0.8 + 0.5;
+                    console.log(`修正弹幕 ${index + 1} 速度: ${danmaku.speed}`);
+                }
+                
+                // 更新位置
+                danmaku.x -= danmaku.speed;
+                
+                // 如果弹幕移出屏幕，重新放到右侧
+                if (danmaku.x < -600) {
+                    danmaku.x = danmakuCanvas.width + 100;
+                    danmaku.y = Math.random() * (danmakuCanvas.height - 200) + 100;
+                }
+                
+                // 绘制弹幕背景
+                const textWidth = danmakuCtx.measureText(danmaku.content).width;
+                const padding = 12;
+                const boxWidth = textWidth + padding * 2 + 200; // 增加宽度以显示更多信息
+                
+                danmakuCtx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+                danmakuCtx.beginPath();
+                danmakuCtx.roundRect(danmaku.x - padding, danmaku.y - padding - 10, boxWidth, 50, 10);
+                danmakuCtx.fill();
+                
+                // 绘制弹幕内容
+                danmakuCtx.font = '18px "Microsoft YaHei", sans-serif';
+                danmakuCtx.fillStyle = danmaku.color;
+                danmakuCtx.fillText(danmaku.content, danmaku.x, danmaku.y);
+                
+                // 绘制署名和时间
+                const date = new Date(danmaku.time);
+                const timeStr = `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
+                const infoText = `—— ${danmaku.sender} 祭拜${danmaku.memberName} (${timeStr})`;
+                
+                danmakuCtx.font = '14px "Microsoft YaHei", sans-serif';
+                danmakuCtx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                danmakuCtx.fillText(infoText, danmaku.x, danmaku.y + 25);
+            });
+            
+            danmakuAnimationId = requestAnimationFrame(animateDanmaku);
+        }
+
         // ===== 初始化 =====
         window.onload = function() {
+            console.log('===== 页面初始化 =====');
+
+            // 从localStorage加载数据
+            const loaded = loadFromLocalStorage();
+            if (loaded) {
+                console.log('已加载保存的数据');
+            } else {
+                console.log('使用默认数据');
+            }
+
+            // 加载家训
+            const savedMotto = localStorage.getItem('familyMotto');
+            if (savedMotto) {
+                familyMotto = savedMotto;
+                document.getElementById('mottoText').textContent = familyMotto;
+            }
+
+            // 加载家族故事
+            const savedStories = localStorage.getItem('familyStories');
+            if (savedStories) {
+                try {
+                    familyStories = JSON.parse(savedStories);
+                } catch (e) {
+                    console.error('加载家族故事失败:', e);
+                }
+            }
+
+            // 加载自定义纪念日
+            loadCustomReminders();
+
+            // 初始化世代筛选器
+            populateGenerationFilter();
+
+            // 初始化祭拜排行榜
+            updateWorshipRank();
+
+            // 显示当前数据统计
+            const totalMembers = familyData.generations.reduce((sum, gen) => sum + gen.members.length, 0);
+            console.log(`当前家族共有 ${familyData.generations.length} 代 ${totalMembers} 人`);
+
             // 初始化飘雪特效
             const snowCanvas = document.getElementById('snowCanvas');
             const snow = new SnowEffect(snowCanvas);
             snow.start();
+
+            // 加载弹幕消息并启动弹幕动画
+            loadDanmakuMessages();
+            if (danmakuMessages.length > 0) {
+                initDanmaku();
+                animateDanmaku();
+            }
+
+            console.log('===== 初始化完成 =====');
         };
     </script>
 </body>
